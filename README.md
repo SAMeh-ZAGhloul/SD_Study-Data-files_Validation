@@ -171,6 +171,75 @@ This will:
 - **ASNT Files**: All ASN.1 structure validations passed, but assessment.asnt missing mandatory fields (StudyID, Reviewer, AssessmentDate)
 - **File Integrity**: All files pass integrity checks (size, existence, readability)
 
+## Pinnacle 21 Validation Results
+
+Pinnacle 21 Community Validator (v4.1.0) was used to validate the XPT files against SDTM IG 3.4 (FDA) standards. The validator checks for compliance with CDISC SDTM standards, including required variables, data types, controlled terminology, and cross-domain relationships.
+
+### Configuration Details
+- **SDTM IG Version**: 3.4 (FDA)
+- **CDISC SDTM CT Version**: 2025-09-26
+- **UNII Version**: 2025-07-02
+- **MED-RT Version**: 2025-09-02
+- **Validation Engine**: FDA 2405.2
+- **Define.xml**: Not provided (marked as missing in all reports)
+
+**Note**: MedDRA and SNOMED dictionaries are not configured in the Community version, so adverse event coding and trial indication checks are not executed.
+
+### Summary of Findings
+
+#### Overall Issues
+- **Missing define.xml**: All validations flagged missing define.xml file (DD0101 - Reject)
+- **Missing Trial Summary (TS) domain**: Required for all submissions (SD1115 - Reject)
+- **Missing other domains**: AE, LB, VS, EX, DS, SE, TA, TE domains flagged as missing
+- **No rejects in processed domains**: The 3 XPT files processed without data rejects (0 rejects each)
+
+#### AE Domain (ae.xpt) - Adverse Events
+- **Records Processed**: 2
+- **Major Issues**:
+  - Missing required SDTM variables: AEDECOD, AESEQ, DOMAIN
+  - Missing expected variables: AEACN, AEBDSYCD, AEBODSYS, AEENDTC, AEHLGT, AEHLGTCD, AEHLT, AEHLTCD, AELLT, AELLTCD, AEPTCD, AESER, AESOC, AESOCCD, AESTDTC
+  - Missing regulatory expected variable: EPOCH
+  - No timing variables present (SD1299)
+- **Total Issues**: 20 metadata issues
+
+#### DM Domain (dm.xpt) - Demographics
+- **Records Processed**: 2
+- **Major Issues**:
+  - Missing required SDTM variables: COUNTRY, DOMAIN, SITEID, SUBJID
+  - Missing expected variables: ACTARM, ACTARMCD, ACTARMUD, AGEU, ARM, ARMCD, ARMNRS, DTHDTC, DTHFL, RACE, RFENDTC, RFICDTC, RFPENDTC, RFSTDTC, RFXENDTC, RFXSTDTC
+- **Total Issues**: 20 metadata issues
+
+#### LB Domain (lb.xpt) - Laboratory Test Results
+- **Records Processed**: 2
+- **Major Issues**:
+  - Missing required SDTM variables: DOMAIN, LBSEQ, LBTESTCD
+  - Missing expected variables: LBCAT, LBDTC, LBLOBXFL, LBNRIND, LBORNRHI, LBORNRLO, LBORRES, LBORRESU, LBSTNRHI, LBSTNRLO, LBSTRESC, VISITNUM
+  - Missing regulatory expected variable: EPOCH
+  - No timing variables present (SD1299)
+- **Total Issues**: 17 metadata issues
+
+### Comparison with Python Validation
+
+| Aspect | Python Validation | Pinnacle 21 Validation |
+|--------|------------------|----------------------|
+| **Format Check** | Fails - Files not in XPORT format | Not applicable - Assumes valid XPT structure |
+| **SDTM Compliance** | Not checked | Comprehensive SDTM IG 3.4 validation |
+| **Variable Presence** | Basic file readability | Detailed required/expected variable checks |
+| **Domain Relationships** | Not checked | Cross-domain consistency validation |
+| **Controlled Terminology** | Not checked | CT validation (limited by missing dictionaries) |
+| **Metadata Validation** | Basic | Requires define.xml for full compliance |
+| **Focus** | File integrity and basic structure | Regulatory submission readiness |
+
+### Recommendations
+
+1. **Convert to XPORT Format**: Address Python validation failures by ensuring files are in proper SAS XPORT v5 format
+2. **Add Missing Variables**: Populate required SDTM variables in each domain
+3. **Create define.xml**: Essential for regulatory submissions to define variable metadata
+4. **Add Missing Domains**: Include TS, AE, LB, VS, EX, DS, SE, TA, TE domains as appropriate
+5. **Configure Dictionaries**: For full validation, configure MedDRA and SNOMED in Pinnacle 21
+6. **Timing Variables**: Ensure EPOCH and other timing variables are populated
+7. **Cross-domain Consistency**: Validate relationships between domains (e.g., USUBJID consistency)
+
 ### Validation Output Files
 
 - `validation_report.txt` - Human-readable validation report
