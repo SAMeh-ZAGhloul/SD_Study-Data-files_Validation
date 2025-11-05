@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssessmentTemplate>
+  <StudyID>STUDY1234</StudyID>
+  <Reviewer>Dr. Smith</Reviewer>
+  <AssessmentDate>2025-11-05</AssessmentDate>
+  <Findings>
+    <Finding id="1" category="Quality">All parameters within range</Finding>
+    <Finding id="2" category="Safety">No adverse trends observed</Finding>
+  </Findings>
+  <Recommendation>Approved for next review phase</Recommendation>
+</AssessmentTemplate>

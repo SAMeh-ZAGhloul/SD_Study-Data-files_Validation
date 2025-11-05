@@ -1,0 +1,199 @@
+=== REGULATORY VALIDATION REPORT ===
+Report generated on: 2025-11-05 17:20:11
+Total files validated: 9
+
+Validation Summary:
+  PASS: 30
+  FAIL: 6
+  WARN: 0
+  ERROR: 0
+  Overall Compliance: REVIEW REQUIRED
+
+Detailed Validation Results:
+
+File: lb.xpt
+  Format Check: FAIL
+  CDISC Compliance: PASS
+  Required Variables: PASS
+  Data Integrity: PASS
+  Structure Check: nan
+  Molecule Count: nan
+  Property Blocks: nan
+  Connectivity: nan
+  ASN.1 Structure: nan
+  Encoding: nan
+  Schema Compliance: nan
+  Mandatory Fields: nan
+  Issues: Not XPORT format: xport
+
+File: ae.xpt
+  Format Check: FAIL
+  CDISC Compliance: PASS
+  Required Variables: PASS
+  Data Integrity: PASS
+  Structure Check: nan
+  Molecule Count: nan
+  Property Blocks: nan
+  Connectivity: nan
+  ASN.1 Structure: nan
+  Encoding: nan
+  Schema Compliance: nan
+  Mandatory Fields: nan
+  Issues: Not XPORT format: xport
+
+File: dm.xpt
+  Format Check: FAIL
+  CDISC Compliance: PASS
+  Required Variables: PASS
+  Data Integrity: PASS
+  Structure Check: nan
+  Molecule Count: nan
+  Property Blocks: nan
+  Connectivity: nan
+  ASN.1 Structure: nan
+  Encoding: nan
+  Schema Compliance: nan
+  Mandatory Fields: nan
+  Issues: Not XPORT format: xport
+
+File: compound.sdf
+  Format Check: nan
+  CDISC Compliance: nan
+  Required Variables: nan
+  Data Integrity: nan
+  Structure Check: PASS
+  Molecule Count: FAIL
+  Property Blocks: PASS
+  Connectivity: FAIL
+  ASN.1 Structure: nan
+  Encoding: nan
+  Schema Compliance: nan
+  Mandatory Fields: nan
+  Issues: Molecule 1: Invalid structure, No valid molecules
+
+File: Structure2D_COMPOUND_CID_197365.sdf
+  Format Check: nan
+  CDISC Compliance: nan
+  Required Variables: nan
+  Data Integrity: nan
+  Structure Check: PASS
+  Molecule Count: PASS
+  Property Blocks: PASS
+  Connectivity: PASS
+  ASN.1 Structure: nan
+  Encoding: nan
+  Schema Compliance: nan
+  Mandatory Fields: nan
+
+File: Conformer3D_COMPOUND_CID_197366.sdf
+  Format Check: nan
+  CDISC Compliance: nan
+  Required Variables: nan
+  Data Integrity: nan
+  Structure Check: PASS
+  Molecule Count: PASS
+  Property Blocks: PASS
+  Connectivity: PASS
+  ASN.1 Structure: nan
+  Encoding: nan
+  Schema Compliance: nan
+  Mandatory Fields: nan
+
+File: Conformer3D_COMPOUND_CID_197366.asnt
+  Format Check: nan
+  CDISC Compliance: nan
+  Required Variables: nan
+  Data Integrity: nan
+  Structure Check: nan
+  Molecule Count: nan
+  Property Blocks: nan
+  Connectivity: nan
+  ASN.1 Structure: PASS (Text)
+  Encoding: PASS
+  Schema Compliance: PASS
+  Mandatory Fields: PASS
+
+File: Structure2D_COMPOUND_CID_197365.asnt
+  Format Check: nan
+  CDISC Compliance: nan
+  Required Variables: nan
+  Data Integrity: nan
+  Structure Check: nan
+  Molecule Count: nan
+  Property Blocks: nan
+  Connectivity: nan
+  ASN.1 Structure: PASS (Text)
+  Encoding: PASS
+  Schema Compliance: PASS
+  Mandatory Fields: PASS
+
+File: assessment.asnt
+  Format Check: nan
+  CDISC Compliance: nan
+  Required Variables: nan
+  Data Integrity: nan
+  Structure Check: nan
+  Molecule Count: nan
+  Property Blocks: nan
+  Connectivity: nan
+  ASN.1 Structure: PASS (XML)
+  Encoding: PASS
+  Schema Compliance: PASS
+  Mandatory Fields: FAIL
+  Issues: Missing mandatory fields: ['StudyID', 'Reviewer', 'AssessmentDate']
+
+=== FILE INTEGRITY CHECKS ===
+
+File: lb.xpt
+  File Size: PASS
+  File Exists: PASS
+  Readable: PASS
+  Issues: []
+
+File: ae.xpt
+  File Size: PASS
+  File Exists: PASS
+  Readable: PASS
+  Issues: []
+
+File: dm.xpt
+  File Size: PASS
+  File Exists: PASS
+  Readable: PASS
+  Issues: []
+
+File: compound.sdf
+  File Size: PASS
+  File Exists: PASS
+  Readable: PASS
+  Issues: []
+
+File: Structure2D_COMPOUND_CID_197365.sdf
+  File Size: PASS
+  File Exists: PASS
+  Readable: PASS
+  Issues: []
+
+File: Conformer3D_COMPOUND_CID_197366.sdf
+  File Size: PASS
+  File Exists: PASS
+  Readable: PASS
+  Issues: []
+
+File: Conformer3D_COMPOUND_CID_197366.asnt
+  File Size: PASS
+  File Exists: PASS
+  Readable: PASS
+  Issues: []
+
+File: Structure2D_COMPOUND_CID_197365.asnt
+  File Size: PASS
+  File Exists: PASS
+  Readable: PASS
+  Issues: []
+
+File: assessment.asnt
+  File Size: PASS
+  File Exists: PASS
+  Readable: PASS
+  Issues: []

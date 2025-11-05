@@ -1,0 +1,10 @@
+File,File Size,File Exists,Readable,Issues
+lb.xpt,PASS,PASS,PASS,[]
+ae.xpt,PASS,PASS,PASS,[]
+dm.xpt,PASS,PASS,PASS,[]
+compound.sdf,PASS,PASS,PASS,[]
+Structure2D_COMPOUND_CID_197365.sdf,PASS,PASS,PASS,[]
+Conformer3D_COMPOUND_CID_197366.sdf,PASS,PASS,PASS,[]
+Conformer3D_COMPOUND_CID_197366.asnt,PASS,PASS,PASS,[]
+Structure2D_COMPOUND_CID_197365.asnt,PASS,PASS,PASS,[]
+assessment.asnt,PASS,PASS,PASS,[]

@@ -1,0 +1,37 @@
+File Name,Extension,File Path,Shape,Columns,First 5 rows,Summary statistics,Number of molecules,First molecule,Molecular weight,Number of atoms,Number of bonds,SMILES,Number of records,XML Root,StudyID,Reviewer,AssessmentDate,Findings,Recommendation
+lb.xpt,.XPT,m5/53-clin-stud-reports/study1234/datasets/datasets/lb.xpt,"(2, 5)","['STUDYID', 'USUBJID', 'LBTEST', 'LBSTRESN', 'LBSTRESU']","  STUDYID  USUBJID      LBTEST  LBSTRESN LBSTRESU
+0  ABC123  SUBJ001  Hemoglobin      14.2     g/dL
+1  ABC123  SUBJ002     Glucose      88.0    mg/dL","       LBSTRESN
+count   2.00000
+mean   51.10000
+std    52.18448
+min    14.20000
+25%    32.65000
+50%    51.10000
+75%    69.55000
+max    88.00000",,,,,,,,,,,,,
+ae.xpt,.XPT,m5/53-clin-stud-reports/study1234/datasets/datasets/ae.xpt,"(2, 5)","['STUDYID', 'USUBJID', 'AETERM', 'AESEV', 'AEREL']","  STUDYID  USUBJID    AETERM     AESEV      AEREL
+0  ABC123  SUBJ001  Headache      MILD    RELATED
+1  ABC123  SUBJ002    Nausea  MODERATE  UNRELATED","       STUDYID  USUBJID    AETERM AESEV    AEREL
+count        2        2         2     2        2
+unique       1        2         2     2        2
+top     ABC123  SUBJ001  Headache  MILD  RELATED
+freq         2        1         1     1        1",,,,,,,,,,,,,
+dm.xpt,.XPT,m5/53-clin-stud-reports/study1234/datasets/datasets/dm.xpt,"(2, 4)","['STUDYID', 'USUBJID', 'AGE', 'SEX']","  STUDYID  USUBJID   AGE SEX
+0  ABC123  SUBJ001  45.0   M
+1  ABC123  SUBJ002  52.0   F","             AGE
+count   2.000000
+mean   48.500000
+std     4.949747
+min    45.000000
+25%    46.750000
+50%    48.500000
+75%    50.250000
+max    52.000000",,,,,,,,,,,,,
+compound.sdf,.SDF,m5/53-clin-stud-reports/study1234/datasets/datasets/compound.sdf,,,,,0,N/A,N/A,N/A,N/A,N/A,,,,,,,
+Structure2D_COMPOUND_CID_197365.sdf,.SDF,m5/53-clin-stud-reports/study1234/datasets/datasets/Structure2D_COMPOUND_CID_197365.sdf,,,,,1,197365,699.99,44,46,CN1CCN(c2ccc3nc(-c4ccc5nc(CCCc6ccc(N(CCCl)CCCl)cc6)[nH]c5c4)[nH]c3c2)CC1.Cl.Cl.Cl,,,,,,,
+Conformer3D_COMPOUND_CID_197366.sdf,.SDF,m5/53-clin-stud-reports/study1234/datasets/datasets/Conformer3D_COMPOUND_CID_197366.sdf,,,,,1,197366,590.60,41,46,CN1CCN(c2ccc3nc(-c4ccc5nc(CCCc6ccc(N(CCCl)CCCl)cc6)[nH]c5c4)[nH]c3c2)CC1,,,,,,,
+Conformer3D_COMPOUND_CID_197366.asnt,.ASNT,m5/53-clin-stud-reports/study1234/datasets/datasets/Conformer3D_COMPOUND_CID_197366.asnt,,,,,,,,,,,0,N/A,N/A,N/A,N/A,N/A,N/A
+Structure2D_COMPOUND_CID_197365.asnt,.ASNT,m5/53-clin-stud-reports/study1234/datasets/datasets/Structure2D_COMPOUND_CID_197365.asnt,,,,,,,,,,,0,N/A,N/A,N/A,N/A,N/A,N/A
+assessment.asnt,.ASNT,m5/53-clin-stud-reports/study1234/datasets/datasets/assessment.asnt,,,,,,,,,,,1,AssessmentTemplate,STUDY1234,Dr. Smith,2025-11-05,"
+    ",Approved for next review phase

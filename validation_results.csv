@@ -1,0 +1,10 @@
+File,Format Check,CDISC Compliance,Required Variables,Data Integrity,Issues,Structure Check,Molecule Count,Property Blocks,Connectivity,ASN.1 Structure,Encoding,Schema Compliance,Mandatory Fields
+lb.xpt,FAIL,PASS,PASS,PASS,['Not XPORT format: xport'],,,,,,,,
+ae.xpt,FAIL,PASS,PASS,PASS,['Not XPORT format: xport'],,,,,,,,
+dm.xpt,FAIL,PASS,PASS,PASS,['Not XPORT format: xport'],,,,,,,,
+compound.sdf,,,,,"['Molecule 1: Invalid structure', 'No valid molecules']",PASS,FAIL,PASS,FAIL,,,,
+Structure2D_COMPOUND_CID_197365.sdf,,,,,[],PASS,PASS,PASS,PASS,,,,
+Conformer3D_COMPOUND_CID_197366.sdf,,,,,[],PASS,PASS,PASS,PASS,,,,
+Conformer3D_COMPOUND_CID_197366.asnt,,,,,[],,,,,PASS (Text),PASS,PASS,PASS
+Structure2D_COMPOUND_CID_197365.asnt,,,,,[],,,,,PASS (Text),PASS,PASS,PASS
+assessment.asnt,,,,,"[""Missing mandatory fields: ['StudyID', 'Reviewer', 'AssessmentDate']""]",,,,,PASS (XML),PASS,PASS,FAIL

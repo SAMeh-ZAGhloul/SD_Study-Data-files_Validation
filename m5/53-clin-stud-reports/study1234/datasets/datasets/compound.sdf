@@ -1,0 +1,17 @@
+Ethanol Example
+  RDKit          3D
+
+  8  8  0  0  1  0            999 V2000
+   -0.0015    1.2095    0.0000 C
+   -0.0015   -0.0015    0.0000 C
+    1.2095   -0.6115    0.0000 O
+M  END
+>  <COMPOUND_NAME>
+Ethanol
+
+>  <FORMULA>
+C2H6O
+
+>  <MOL_WEIGHT>
+46.07
+$$$$
