@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DETAILED_README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="sd-study-data-files---comprehensive-documentation">SD Study Data Files - Comprehensive Documentation</h1>
+<p><strong>Repository Owner:</strong> Fixed Solution Group
+<strong>Last Updated:</strong> December 2025</p>
+<hr>
+<h2 id="%F0%9F%93%8B-table-of-contents">📋 Table of Contents</h2>
+<ol>
+<li><a href="#project-overview">Project Overview</a></li>
+<li><a href="#repository-structure">Repository Structure</a></li>
+<li><a href="#architecture-diagram">Architecture Diagram</a></li>
+<li><a href="#workflow--sequence-diagrams">Workflow &amp; Sequence Diagrams</a></li>
+<li><a href="#data-standards--domains">Data Standards &amp; Domains</a></li>
+<li><a href="#file-types--specifications">File Types &amp; Specifications</a></li>
+<li><a href="#installation--setup">Installation &amp; Setup</a></li>
+<li><a href="#usage-guide">Usage Guide</a></li>
+<li><a href="#validation-framework">Validation Framework</a></li>
+<li><a href="#freesolv-database-integration">FreeSolv Database Integration</a></li>
+<li><a href="#development-guide">Development Guide</a></li>
+</ol>
+<hr>
+<h2 id="project-overview">Project Overview</h2>
+<p>This repository contains a comprehensive system for managing, validating, and analyzing <strong>Study Data (SD) files</strong> from clinical and nonclinical studies. It implements FDA-compliant regulatory data submission standards including <strong>SDTM, ADaM, and SEND</strong> models.</p>
+<h3 id="key-objectives">Key Objectives</h3>
+<ul>
+<li><strong>Data Management</strong>: Store and organize clinical study data following CDISC standards</li>
+<li><strong>Validation</strong>: Ensure regulatory compliance and data integrity before submission</li>
+<li><strong>Analysis</strong>: Process and analyze molecular structures, clinical datasets, and metadata</li>
+<li><strong>Integration</strong>: Combine molecular simulation data (FreeSolv) with clinical datasets</li>
+</ul>
+<h3 id="primary-use-cases">Primary Use Cases</h3>
+<ol>
+<li><strong>Regulatory Submissions</strong>: Prepare eCTD submissions for FDA/EMA approval</li>
+<li><strong>Data Quality</strong>: Validate datasets before regulatory submission</li>
+<li><strong>Chemical Analysis</strong>: Process molecular structures and compounds</li>
+<li><strong>Research</strong>: Analyze hydration free energy and molecular properties</li>
+</ol>
+<hr>
+<h2 id="repository-structure">Repository Structure</h2>
+<pre class="hljs"><code><div>SD_Study-Data-files_Validation/
+├── README.md                              # Original repository README
+├── DETAILED_README.md                     # This comprehensive documentation
+├── validation_README.md                   # Validation checklist and guidelines
+├── validation_report.txt                  # Latest validation results
+├── validation_results.csv                 # Detailed validation metrics
+├── integrity_results.csv                  # File integrity check results
+├── run_validation.py                      # Main validation script
+├── sample_file_summary.xlsx               # File summary spreadsheet
+│
+├── SD_Study-Data-files.ipynb              # Main analysis Jupyter notebook
+├── SD_Study-Data-files.csv                # Generated file analysis summary
+├── SD_Study-Data-files.html               # HTML report output
+├── SD_Study-Data-files.pdf                # PDF documentation
+├── SD_Study-Data-files_validated.ipynb    # Validated analysis notebook
+├── SD_Study-Data-files_validated.html     # Validated HTML report
+│
+├── m5/                                    # eCTD Module 5 (Study Reports)
+│   └── 53-clin-stud-reports/              # Clinical study reports
+│       └── study1234/                     # Study identifier
+│           └── datasets/
+│               └── datasets/              # CDISC datasets
+│                   ├── ae.csv / ae.xpt    # Adverse Events domain
+│                   ├── dm.csv / dm.xpt    # Demographics domain
+│                   ├── lb.csv / lb.xpt    # Laboratory Results domain
+│                   ├── define.xml         # Variable definitions
+│                   ├── stf.xml            # Study metadata
+│                   ├── compound.sdf       # Chemical structures
+│                   ├── COMPOUND_*.json    # PubChem compound data
+│                   ├── *.asnt             # ASN.1 metadata files
+│                   ├── Structure*.sdf     # 2D/3D structure files
+│                   ├── assessment.asnt    # Assessment metadata
+│                   ├── annotated-crf.pdf  # Case report form
+│                   ├── study1234-clin-report.pdf
+│                   └── study1234-sdtm-rg.pdf
+│
+├── pinnacle21/                            # Pinnacle 21 validation files
+│   ├── ae.xpt
+│   ├── dm.xpt
+│   └── lb.xpt
+│
+└── New-Data/                              # Extended data collections
+    ├── Compound_151000001_151500000.sdf   # Large compound library
+    │
+    └── FreeSolv-master/                   # FreeSolv hydration database
+        ├── database.json                  # Compound database (JSON)
+        ├── database.txt                   # Compound database (text)
+        ├── groups.txt                     # Functional groups
+        ├── iupac_to_cid.json              # IUPAC name mapping
+        ├── smiles_to_cid.json             # SMILES string mapping
+        │
+        ├── scripts/                       # Data processing scripts
+        │   ├── rebuild_freesolv.py        # Database rebuild utility
+        │   ├── extract-primary-data.py    # Data extraction
+        │   ├── generate-tripos-mol2files.py # MOL2 file generation
+        │   ├── make_supporting_files.py   # Support file generation
+        │   ├── make_v0.32.py / make_v0.52.py # Version builders
+        │   ├── hComponents.py             # Enthalpy components
+        │   └── utils.py                   # Utility functions
+        │
+        ├── gromacs_mdpfiles/              # GROMACS simulation configs
+        │   ├── DG_mdp/                    # Docking/Grid MDP files
+        │   └── DH_mdp/                    # Docking/Hydration MDP files
+        │       ├── in_solution/
+        │       └── vacuum/
+        │
+        ├── gromacs_analysis/              # GROMACS analysis outputs
+        │   └── plots/                     # Analysis visualizations
+        │
+        ├── simulation_comparison_input/   # Comparison configurations
+        │   ├── energy_comparison_info.txt
+        │   ├── grompp_freesolv.mdp
+        │   ├── min_freesolv.in
+        │   ├── onepoint_freesolv.cfg
+        │   └── README.md
+        │
+        ├── notebooks/                     # Analysis notebooks
+        │   ├── OrionDB.ipynb              # OrionDB analysis
+        │   └── README.md
+        │
+        └── primary-data/                  # Raw experimental data
+</div></code></pre>
+<hr>
+<h2 id="architecture-diagram">Architecture Diagram</h2>
+<pre><code class="language-mermaid"><div class="mermaid">graph TB
+    subgraph "Data Input Layer"
+        A1["Clinical Study Files"]
+        A2["Chemical Structures"]
+        A3["Metadata & Definitions"]
+        A4["FreeSolv Database"]
+    end
+
+    subgraph "Processing Layer"
+        B1["File Scanner<br/>scan_directory.py"]
+        B2["Data Parsers"]
+        B3["Validation Engine<br/>run_validation.py"]
+        B4["Analysis Pipeline"]
+    end
+
+    subgraph "Data Transformation Layer"
+        C1["SDF Parser<br/>RDKit"]
+        C2["XPT Parser<br/>pyreadstat"]
+        C3["ASN.1 Parser<br/>pyasn1"]
+        C4["XML Parser<br/>define.xml"]
+        C5["Frequency Analysis"]
+        C6["Structure Analysis"]
+    end
+
+    subgraph "Validation Layer"
+        D1["Format Validation"]
+        D2["CDISC Compliance"]
+        D3["Data Integrity"]
+        D4["File Integrity"]
+    end
+
+    subgraph "Output Layer"
+        E1["CSV Reports"]
+        E2["HTML Reports"]
+        E3["PDF Documentation"]
+        E4["Validation Results"]
+    end
+
+    subgraph "Integration Layer"
+        F1["Jupyter Notebook<br/>Analysis Environment"]
+        F2["FreeSolv Integration"]
+        F3["Molecular Property DB"]
+    end
+
+    A1 --> B1
+    A2 --> B1
+    A3 --> B1
+    A4 --> F2
+
+    B1 --> B2
+    B2 --> C1
+    B2 --> C2
+    B2 --> C3
+    B2 --> C4
+
+    C1 --> C5
+    C2 --> C6
+    C3 --> D1
+    C4 --> D1
+
+    B3 --> D1
+    B3 --> D2
+    B3 --> D3
+    B3 --> D4
+
+    D1 --> E1
+    D2 --> E1
+    D3 --> E2
+    D4 --> E4
+
+    F1 --> E2
+    F2 --> F3
+    F3 --> E1
+
+    style A1 fill:#e1f5ff
+    style A2 fill:#e1f5ff
+    style A3 fill:#e1f5ff
+    style A4 fill:#e1f5ff
+    style B1 fill:#fff3e0
+    style B2 fill:#fff3e0
+    style B3 fill:#fff3e0
+    style B4 fill:#fff3e0
+    style D1 fill:#f3e5f5
+    style D2 fill:#f3e5f5
+    style D3 fill:#f3e5f5
+    style D4 fill:#f3e5f5
+    style E1 fill:#c8e6c9
+    style E2 fill:#c8e6c9
+    style E3 fill:#c8e6c9
+    style E4 fill:#c8e6c9
+    style F1 fill:#ffe0b2
+    style F2 fill:#ffe0b2
+    style F3 fill:#ffe0b2
+</div></code></pre>
+<hr>
+<h2 id="workflow--sequence-diagrams">Workflow &amp; Sequence Diagrams</h2>
+<h3 id="1-data-validation-workflow">1. Data Validation Workflow</h3>
+<pre><code class="language-mermaid"><div class="mermaid">sequenceDiagram
+    participant User
+    participant Scanner as File Scanner
+    participant Parser as Data Parser
+    participant Validator as Validation Engine
+    participant DB as Results Database
+    participant Report as Report Generator
+
+    User->>Scanner: Execute scan_directory()
+    Scanner->>Scanner: Locate all files
+    Scanner->>Parser: Pass file list
+
+    Parser->>Parser: Identify file types
+    Parser->>Parser: Parse SDF files
+    Parser->>Parser: Parse XPT files
+    Parser->>Parser: Parse XML/ASN.1
+
+    Parser->>Validator: Send parsed data
+
+    Validator->>Validator: Format validation
+    Validator->>Validator: CDISC compliance check
+    Validator->>Validator: Data integrity check
+    Validator->>Validator: File integrity check
+
+    Validator->>DB: Store validation results
+
+    DB->>Report: Query results
+    Report->>Report: Generate CSV report
+    Report->>Report: Generate HTML report
+    Report->>User: Display results
+
+    User->>User: Review validation report
+</div></code></pre>
+<h3 id="2-jupyter-notebook-analysis-workflow">2. Jupyter Notebook Analysis Workflow</h3>
+<pre><code class="language-mermaid"><div class="mermaid">sequenceDiagram
+    participant Notebook as Jupyter Notebook
+    participant FileIO as File System
+    participant RDKit as RDKit Library
+    participant Pandas as Pandas DataFrame
+    participant Stats as Statistics Engine
+    participant Output as Output Generator
+
+    Notebook->>FileIO: Load configuration
+    Notebook->>FileIO: Scan M5 directory
+
+    FileIO->>Pandas: Create file inventory
+
+    Notebook->>Pandas: Filter by file type
+
+    Notebook->>RDKit: Load SDF files
+    RDKit->>RDKit: Parse molecular structures
+    RDKit->>RDKit: Calculate properties
+
+    Notebook->>Stats: Compute statistics
+    Stats->>Stats: Frequency analysis
+    Stats->>Stats: Property distribution
+    Stats->>Stats: Domain statistics
+
+    Notebook->>Pandas: Aggregate results
+
+    Pandas->>Output: Generate CSV
+    Pandas->>Output: Generate HTML table
+    Pandas->>Notebook: Display interactive table
+
+    Output->>FileIO: Save reports
+    FileIO->>Notebook: Report saved confirmation
+</div></code></pre>
+<h3 id="3-file-processing-pipeline">3. File Processing Pipeline</h3>
+<pre><code class="language-mermaid"><div class="mermaid">graph LR
+    A["Raw Files<br/>m5/datasets/"]
+    B["File Identification"]
+    C["Format Detection"]
+    D{"File Type?"}
+    E["XPT Processing<br/>pyreadstat"]
+    F["SDF Processing<br/>RDKit"]
+    G["XML Processing<br/>xml.etree"]
+    H["ASN.1 Processing<br/>pyasn1"]
+    I["Property Extraction"]
+    J["Data Validation"]
+    K["Results Compilation"]
+    L["Report Generation"]
+
+    A --> B
+    B --> C
+    C --> D
+    D -->|XPT| E
+    D -->|SDF| F
+    D -->|XML| G
+    D -->|ASN.1| H
+    E --> I
+    F --> I
+    G --> I
+    H --> I
+    I --> J
+    J --> K
+    K --> L
+
+    style A fill:#e3f2fd
+    style B fill:#fff3e0
+    style C fill:#fff3e0
+    style D fill:#ffe0b2
+    style E fill:#ffccbc
+    style F fill:#ffccbc
+    style G fill:#ffccbc
+    style H fill:#ffccbc
+    style I fill:#f3e5f5
+    style J fill:#f3e5f5
+    style K fill:#c8e6c9
+    style L fill:#c8e6c9
+</div></code></pre>
+<h3 id="4-validation-decision-tree">4. Validation Decision Tree</h3>
+<pre><code class="language-mermaid"><div class="mermaid">graph TD
+    A["Start Validation"]
+    B{"Format Check<br/>Valid File Type?"}
+    C["Format Check: FAIL"]
+    D{"CDISC Compliance<br/>Meets Standards?"}
+    E["CDISC: FAIL"]
+    F{"Required Variables<br/>Present?"}
+    G["Variables: FAIL"]
+    H{"Data Integrity<br/>No Nulls/Duplicates?"}
+    I["Integrity: FAIL"]
+    J["All Validations<br/>PASS"]
+    K["Generate Report"]
+
+    A --> B
+    B -->|No| C
+    B -->|Yes| D
+    C --> K
+    D -->|No| E
+    D -->|Yes| F
+    E --> K
+    F -->|No| G
+    F -->|Yes| H
+    G --> K
+    H -->|No| I
+    H -->|Yes| J
+    I --> K
+    J --> K
+    K --> L["Output Results"]
+
+    style A fill:#e3f2fd
+    style B fill:#fff9c4
+    style D fill:#fff9c4
+    style F fill:#fff9c4
+    style H fill:#fff9c4
+    style C fill:#ffebee
+    style E fill:#ffebee
+    style G fill:#ffebee
+    style I fill:#ffebee
+    style J fill:#c8e6c9
+    style K fill:#ffe0b2
+    style L fill:#c8e6c9
+</div></code></pre>
+<h3 id="5-freesolv-integration-pipeline">5. FreeSolv Integration Pipeline</h3>
+<pre><code class="language-mermaid"><div class="mermaid">graph TB
+    A["FreeSolv Database"]
+    B["database.json<br/>database.txt"]
+    C["Compound Mappings"]
+    D["IUPAC to CID<br/>SMILES to CID"]
+    E["Molecular Structure<br/>Generation"]
+    F["MOL2 Files<br/>SDF Files"]
+    G["GROMACS Simulation<br/>Files"]
+    H["Energy Calculations<br/>Hydration Properties"]
+    I["Property Database"]
+    J["Clinical Study<br/>Integration"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+
+    style A fill:#e1f5ff
+    style B fill:#b3e5fc
+    style C fill:#81d4fa
+    style D fill:#4fc3f7
+    style E fill:#29b6f6
+    style F fill:#fff9c4
+    style G fill:#ffb74d
+    style H fill:#ff8a65
+    style I fill:#ffab91
+    style J fill:#c8e6c9
+</div></code></pre>
+<hr>
+<h2 id="data-standards--domains">Data Standards &amp; Domains</h2>
+<h3 id="cdisc-sdtm-domains">CDISC SDTM Domains</h3>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Code</th>
+<th>Description</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Demographics</strong></td>
+<td>DM</td>
+<td>Subject demographics, enrollment date, treatment assignment</td>
+<td><code>dm.csv</code>, <code>dm.xpt</code></td>
+</tr>
+<tr>
+<td><strong>Adverse Events</strong></td>
+<td>AE</td>
+<td>Adverse events and serious adverse events</td>
+<td><code>ae.csv</code>, <code>ae.xpt</code></td>
+</tr>
+<tr>
+<td><strong>Laboratory Results</strong></td>
+<td>LB</td>
+<td>Laboratory test results and values</td>
+<td><code>lb.csv</code>, <code>lb.xpt</code></td>
+</tr>
+<tr>
+<td><strong>Medical History</strong></td>
+<td>MH</td>
+<td>Subject medical history</td>
+<td>Study reports</td>
+</tr>
+<tr>
+<td><strong>Physical Examination</strong></td>
+<td>PE</td>
+<td>Physical examination findings</td>
+<td>Study reports</td>
+</tr>
+<tr>
+<td><strong>Vital Signs</strong></td>
+<td>VS</td>
+<td>Vital signs measurements (BP, HR, etc.)</td>
+<td>Study reports</td>
+</tr>
+<tr>
+<td><strong>Electrocardiogram</strong></td>
+<td>EG</td>
+<td>ECG test results</td>
+<td>Study reports</td>
+</tr>
+</tbody>
+</table>
+<h3 id="trial-summary-ts-domain">Trial Summary (TS) Domain</h3>
+<p>Contains study-level metadata:</p>
+<ul>
+<li>Study identifier</li>
+<li>Study title</li>
+<li>Protocol version</li>
+<li>Principal investigator</li>
+<li>Study phase</li>
+<li>Therapeutic indication</li>
+</ul>
+<h3 id="definitions-definexml">Definitions (DEFINE.XML)</h3>
+<p>Provides comprehensive metadata for all variables:</p>
+<ul>
+<li>Variable names and labels</li>
+<li>Data types and formats</li>
+<li>Variable definitions and derivations</li>
+<li>Validation rules</li>
+<li>Permissible values</li>
+</ul>
+<hr>
+<h2 id="file-types--specifications">File Types &amp; Specifications</h2>
+<h3 id="1-sas-xport-format-xpt">1. SAS XPORT Format (.xpt)</h3>
+<p><strong>Purpose</strong>: Transport format for SAS datasets, FDA-preferred for regulatory submissions</p>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li>Version 5 XPORT format (EBCDIC/ASCII encoded)</li>
+<li>Binary file containing tabulated data</li>
+<li>Preserves SAS metadata (variable labels, formats)</li>
+<li>Case-insensitive variable names (8 char max)</li>
+</ul>
+<p><strong>Validation Checks</strong>:</p>
+<pre class="hljs"><code><div>✓ File format = XPORT v5
+✓ CDISC domain compliance
+✓ Required variables present (STUDYID, USUBJID)
+✓ No null values in key fields
+✓ Variable names follow CDISC conventions
+</div></code></pre>
+<p><strong>Tools</strong>: <code>pyreadstat</code>, Pinnacle 21 Community</p>
+<h3 id="2-structure-data-files-sdf">2. Structure Data Files (.sdf)</h3>
+<p><strong>Purpose</strong>: Molecular structure format containing chemical compound data</p>
+<p><strong>Format</strong>:</p>
+<ul>
+<li>Text-based format with multiple molecules</li>
+<li>Each molecule separated by <code>$$$$</code> delimiter</li>
+<li>Contains 2D/3D coordinates, bonds, atoms, and properties</li>
+<li>Property blocks marked with <code>&gt; &lt;PROPERTY_NAME&gt;</code></li>
+</ul>
+<p><strong>Example Structure</strong>:</p>
+<pre class="hljs"><code><div>Molecule Name
+ Creator      Timestamp
+
+  Atom Count  Bond Count
+M  END
+&gt; &lt;PUBCHEM_COMPOUND_CID&gt;
+123456
+
+$$$$
+</div></code></pre>
+<p><strong>Validation Checks</strong>:</p>
+<pre class="hljs"><code><div>✓ Proper SDF structure (molecules separated by $$$$)
+✓ Valid atom/bond connectivity
+✓ 2D/3D coordinates consistency
+✓ Property blocks well-formed
+✓ No corrupted molecule data
+</div></code></pre>
+<p><strong>Tools</strong>: RDKit, Open Babel</p>
+<h3 id="3-abstract-syntax-notation-one-asnt">3. Abstract Syntax Notation One (.asnt)</h3>
+<p><strong>Purpose</strong>: Structured text format for regulatory metadata encoding</p>
+<p><strong>Specifications</strong>:</p>
+<ul>
+<li>ASN.1 DER or BER encoding</li>
+<li>UTF-8 or ASCII character encoding</li>
+<li>Hierarchical object structure</li>
+<li>Schema-based validation</li>
+</ul>
+<p><strong>Common Uses</strong>:</p>
+<ul>
+<li>Conformer 3D structure metadata</li>
+<li>2D structure metadata</li>
+<li>Assessment data</li>
+<li>Study metadata</li>
+</ul>
+<p><strong>Validation Checks</strong>:</p>
+<pre class="hljs"><code><div>✓ Valid ASN.1 syntax
+✓ Character encoding valid
+✓ Mandatory objects present
+✓ Schema compliance
+</div></code></pre>
+<p><strong>Tools</strong>: pyasn1, asn1tools</p>
+<h3 id="4-xml-files-xml-definexml-stfxml">4. XML Files (.xml, define.xml, stf.xml)</h3>
+<p><strong>Purpose</strong>: Metadata and definitions in extensible markup language</p>
+<p><strong>define.xml</strong>:</p>
+<ul>
+<li>Variable definitions for SDTM domains</li>
+<li>Dataset-to-domain mapping</li>
+<li>Derivation rules</li>
+<li>Permissible values</li>
+</ul>
+<p><strong>stf.xml</strong>:</p>
+<ul>
+<li>Study-level metadata</li>
+<li>Study title and description</li>
+<li>Protocol information</li>
+<li>Study dates</li>
+</ul>
+<p><strong>Validation Checks</strong>:</p>
+<pre class="hljs"><code><div>✓ Valid XML schema
+✓ All required elements present
+✓ Proper nesting and hierarchy
+✓ Consistent with dataset variables
+</div></code></pre>
+<h3 id="5-json-files-json">5. JSON Files (.json)</h3>
+<p><strong>Purpose</strong>: PubChem compound data and database records</p>
+<p><strong>Contents</strong>:</p>
+<ul>
+<li>Compound identifiers</li>
+<li>IUPAC names</li>
+<li>SMILES strings</li>
+<li>Molecular properties</li>
+<li>References and sources</li>
+</ul>
+<p><strong>Example Fields</strong>:</p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"CID"</span>: <span class="hljs-number">197365</span>,
+  <span class="hljs-attr">"IUPACName"</span>: <span class="hljs-string">"compound name"</span>,
+  <span class="hljs-attr">"SMILES"</span>: <span class="hljs-string">"CC(C)Cc1..."</span>,
+  <span class="hljs-attr">"MolecularWeight"</span>: <span class="hljs-number">206.28</span>,
+  <span class="hljs-attr">"ExactMass"</span>: <span class="hljs-number">206.1620</span>
+}
+</div></code></pre>
+<h3 id="6-comma-separated-values-csv">6. Comma-Separated Values (.csv)</h3>
+<p><strong>Purpose</strong>: Tabular data in text format for analysis and reporting</p>
+<p><strong>Formats</strong>:</p>
+<ul>
+<li>File inventory summary</li>
+<li>Validation results</li>
+<li>Analysis statistics</li>
+<li>Data quality metrics</li>
+</ul>
+<hr>
+<h2 id="installation--setup">Installation &amp; Setup</h2>
+<h3 id="system-requirements">System Requirements</h3>
+<ul>
+<li><strong>Python</strong>: 3.7 or higher</li>
+<li><strong>OS</strong>: Linux, macOS, or Windows</li>
+<li><strong>Disk Space</strong>: 10+ GB for full dataset</li>
+<li><strong>RAM</strong>: 4+ GB recommended</li>
+</ul>
+<h3 id="required-python-packages">Required Python Packages</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Chemical analysis</span>
+pip install rdkit-pypi&gt;=2022.09.1
+pip install rdkit
+
+<span class="hljs-comment"># Data manipulation and analysis</span>
+pip install pandas&gt;=1.5.0
+pip install numpy&gt;=1.23.0
+
+<span class="hljs-comment"># SAS file support</span>
+pip install pyreadstat&gt;=1.2.0
+
+<span class="hljs-comment"># Bioinformatics</span>
+pip install biopython&gt;=1.81
+
+<span class="hljs-comment"># ASN.1 support</span>
+pip install pyasn1&gt;=0.4.8
+pip install asn1tools&gt;=0.154.1
+
+<span class="hljs-comment"># XML and serialization</span>
+pip install lxml&gt;=4.9.0
+pip install xmltodict&gt;=0.13.0
+
+<span class="hljs-comment"># Data validation</span>
+pip install pydantic&gt;=1.10.0
+
+<span class="hljs-comment"># Character encoding detection</span>
+pip install chardet&gt;=5.0.0
+
+<span class="hljs-comment"># Excel support</span>
+pip install openpyxl&gt;=3.9.0
+</div></code></pre>
+<h3 id="quick-setup">Quick Setup</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Clone repository</span>
+git <span class="hljs-built_in">clone</span> https://github.com/SAMeh-ZAGhloul/SD_Study-Data-files.git
+<span class="hljs-built_in">cd</span> SD_Study-Data-files_Validation
+
+<span class="hljs-comment"># Create virtual environment</span>
+python -m venv venv
+<span class="hljs-built_in">source</span> venv/bin/activate  <span class="hljs-comment"># On Windows: venv\Scripts\activate</span>
+
+<span class="hljs-comment"># Install dependencies</span>
+pip install -r requirements.txt
+
+<span class="hljs-comment"># Verify installation</span>
+python -c <span class="hljs-string">"import rdkit, pandas, pyreadstat; print('All packages installed successfully')"</span>
+</div></code></pre>
+<h3 id="configuration">Configuration</h3>
+<p>Create <code>config.py</code> in project root:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Data paths</span>
+DATA_ROOT = <span class="hljs-string">"./m5/53-clin-stud-reports/study1234/datasets/datasets"</span>
+FREESOLV_PATH = <span class="hljs-string">"./New-Data/FreeSolv-master"</span>
+
+<span class="hljs-comment"># Validation settings</span>
+STRICT_CDISC = <span class="hljs-literal">True</span>
+CHECK_ENCODING = <span class="hljs-literal">True</span>
+VALIDATE_DEFINES = <span class="hljs-literal">True</span>
+
+<span class="hljs-comment"># Output settings</span>
+OUTPUT_DIR = <span class="hljs-string">"./results"</span>
+REPORT_FORMAT = [<span class="hljs-string">"csv"</span>, <span class="hljs-string">"html"</span>, <span class="hljs-string">"pdf"</span>]
+</div></code></pre>
+<hr>
+<h2 id="usage-guide">Usage Guide</h2>
+<h3 id="1-running-the-validation-script">1. Running the Validation Script</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Full validation of all files</span>
+python run_validation.py
+
+<span class="hljs-comment"># Validate specific directory</span>
+python run_validation.py --input ./m5/53-clin-stud-reports/study1234
+
+<span class="hljs-comment"># Generate detailed report</span>
+python run_validation.py --output ./results/validation_report.txt --verbose
+
+<span class="hljs-comment"># Validate and fix common issues</span>
+python run_validation.py --auto-fix
+</div></code></pre>
+<p><strong>Output Files</strong>:</p>
+<ul>
+<li><code>validation_results.csv</code> - Detailed results</li>
+<li><code>validation_report.txt</code> - Human-readable report</li>
+<li><code>integrity_results.csv</code> - File integrity checks</li>
+</ul>
+<h3 id="2-using-the-jupyter-notebook">2. Using the Jupyter Notebook</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Start Jupyter</span>
+jupyter notebook SD_Study-Data-files.ipynb
+
+<span class="hljs-comment"># Or use JupyterLab</span>
+jupyter lab SD_Study-Data-files.ipynb
+</div></code></pre>
+<p><strong>Notebook Workflow</strong>:</p>
+<ol>
+<li>Cell 1: Import libraries</li>
+<li>Cell 2: Configure paths</li>
+<li>Cell 3: Scan directory for files</li>
+<li>Cell 4-6: Parse and analyze different file types</li>
+<li>Cell 7-9: Generate statistics and summaries</li>
+<li>Cell 10: Create comprehensive report</li>
+<li>Cell 11-12: Export results to CSV/HTML</li>
+</ol>
+<h3 id="3-parsing-different-file-types">3. Parsing Different File Types</h3>
+<h4 id="parse-xpt-files">Parse XPT Files</h4>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> pyreadstat
+
+<span class="hljs-comment"># Read XPT file</span>
+df, meta = pyreadstat.read_xport(<span class="hljs-string">'./datasets/dm.xpt'</span>)
+print(<span class="hljs-string">f"Format: <span class="hljs-subst">{meta.file_format}</span>"</span>)
+print(<span class="hljs-string">f"Variables: <span class="hljs-subst">{list(df.columns)}</span>"</span>)
+print(<span class="hljs-string">f"Rows: <span class="hljs-subst">{len(df)}</span>"</span>)
+</div></code></pre>
+<h4 id="parse-sdf-files">Parse SDF Files</h4>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> rdkit <span class="hljs-keyword">import</span> Chem
+
+<span class="hljs-comment"># Read SDF file</span>
+supplier = Chem.SDMolSupplier(<span class="hljs-string">'./datasets/compound.sdf'</span>)
+<span class="hljs-keyword">for</span> mol <span class="hljs-keyword">in</span> supplier:
+    <span class="hljs-keyword">if</span> mol <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>:
+        print(<span class="hljs-string">f"Molecule: <span class="hljs-subst">{mol.GetProp(<span class="hljs-string">'_Name'</span>)}</span>"</span>)
+        print(<span class="hljs-string">f"Weight: <span class="hljs-subst">{Chem.Descriptors.MolWt(mol)}</span>"</span>)
+</div></code></pre>
+<h4 id="parse-xml-files">Parse XML Files</h4>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> xml.etree.ElementTree <span class="hljs-keyword">as</span> ET
+
+<span class="hljs-comment"># Parse define.xml</span>
+tree = ET.parse(<span class="hljs-string">'./datasets/define.xml'</span>)
+root = tree.getroot()
+
+<span class="hljs-keyword">for</span> itemdef <span class="hljs-keyword">in</span> root.findall(<span class="hljs-string">'.//ItemDef'</span>):
+    oid = itemdef.get(<span class="hljs-string">'OID'</span>)
+    name = itemdef.get(<span class="hljs-string">'Name'</span>)
+    print(<span class="hljs-string">f"<span class="hljs-subst">{oid}</span>: <span class="hljs-subst">{name}</span>"</span>)
+</div></code></pre>
+<h3 id="4-data-analysis-examples">4. Data Analysis Examples</h3>
+<h4 id="analyze-demographics-domain">Analyze Demographics Domain</h4>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+
+<span class="hljs-comment"># Load demographics</span>
+dm = pd.read_csv(<span class="hljs-string">'./datasets/dm.csv'</span>)
+
+<span class="hljs-comment"># Summary statistics</span>
+print(<span class="hljs-string">f"Total subjects: <span class="hljs-subst">{dm[<span class="hljs-string">'USUBJID'</span>].nunique()}</span>"</span>)
+print(<span class="hljs-string">f"Gender distribution:\n<span class="hljs-subst">{dm[<span class="hljs-string">'SEX'</span>].value_counts()}</span>"</span>)
+print(<span class="hljs-string">f"Age range: <span class="hljs-subst">{dm[<span class="hljs-string">'AGE'</span>].min()}</span>-<span class="hljs-subst">{dm[<span class="hljs-string">'AGE'</span>].max()}</span>"</span>)
+</div></code></pre>
+<h4 id="generate-summary-report">Generate Summary Report</h4>
+<pre class="hljs"><code><div><span class="hljs-comment"># Create comprehensive summary</span>
+summary = {
+    <span class="hljs-string">'Study ID'</span>: dm[<span class="hljs-string">'STUDYID'</span>].unique()[<span class="hljs-number">0</span>],
+    <span class="hljs-string">'Total Subjects'</span>: dm[<span class="hljs-string">'USUBJID'</span>].nunique(),
+    <span class="hljs-string">'Treatment Groups'</span>: dm[<span class="hljs-string">'TRT01P'</span>].nunique(),
+    <span class="hljs-string">'Gender Distribution'</span>: dm[<span class="hljs-string">'SEX'</span>].value_counts().to_dict(),
+    <span class="hljs-string">'Average Age'</span>: dm[<span class="hljs-string">'AGE'</span>].mean(),
+}
+
+<span class="hljs-comment"># Export to CSV</span>
+pd.DataFrame([summary]).to_csv(<span class="hljs-string">'study_summary.csv'</span>, index=<span class="hljs-literal">False</span>)
+</div></code></pre>
+<hr>
+<h2 id="validation-framework">Validation Framework</h2>
+<h3 id="validation-architecture">Validation Architecture</h3>
+<pre class="hljs"><code><div>Input Files
+    ↓
+[Type Detection]
+    ↓
+[Format Validation] → Check file format, encoding, structure
+    ↓
+[Metadata Validation] → Check headers, labels, definitions
+    ↓
+[Content Validation] → Check data types, ranges, relationships
+    ↓
+[CDISC Compliance] → Check domain standards, variable names
+    ↓
+[Integrity Checks] → Check duplicates, nulls, consistency
+    ↓
+Results Database
+    ↓
+[Report Generation]
+</div></code></pre>
+<h3 id="validation-checklist">Validation Checklist</h3>
+<h4 id="for-xpt-files">For XPT Files</h4>
+<ul>
+<li><input type="checkbox" id="checkbox0"><label for="checkbox0">File format = XPORT v5</label></li>
+<li><input type="checkbox" id="checkbox1"><label for="checkbox1">CDISC domain compliance</label></li>
+<li><input type="checkbox" id="checkbox2"><label for="checkbox2">STUDYID present and consistent</label></li>
+<li><input type="checkbox" id="checkbox3"><label for="checkbox3">USUBJID present and unique</label></li>
+<li><input type="checkbox" id="checkbox4"><label for="checkbox4">All variables in define.xml</label></li>
+<li><input type="checkbox" id="checkbox5"><label for="checkbox5">No missing values in key fields</label></li>
+<li><input type="checkbox" id="checkbox6"><label for="checkbox6">Variable types correct</label></li>
+<li><input type="checkbox" id="checkbox7"><label for="checkbox7">Date formats consistent</label></li>
+</ul>
+<h4 id="for-sdf-files">For SDF Files</h4>
+<ul>
+<li><input type="checkbox" id="checkbox8"><label for="checkbox8">Molecules properly separated by </label><code>$$$$</code></li>
+<li><input type="checkbox" id="checkbox9"><label for="checkbox9">Each molecule has valid structure</label></li>
+<li><input type="checkbox" id="checkbox10"><label for="checkbox10">Atom/bond counts match structure</label></li>
+<li><input type="checkbox" id="checkbox11"><label for="checkbox11">2D/3D coordinates valid</label></li>
+<li><input type="checkbox" id="checkbox12"><label for="checkbox12">Property blocks well-formed</label></li>
+<li><input type="checkbox" id="checkbox13"><label for="checkbox13">Encoding is valid</label></li>
+<li><input type="checkbox" id="checkbox14"><label for="checkbox14">No corrupted data</label></li>
+</ul>
+<h4 id="for-xml-files">For XML Files</h4>
+<ul>
+<li><input type="checkbox" id="checkbox15"><label for="checkbox15">Valid XML schema</label></li>
+<li><input type="checkbox" id="checkbox16"><label for="checkbox16">Character encoding valid (UTF-8)</label></li>
+<li><input type="checkbox" id="checkbox17"><label for="checkbox17">All required elements present</label></li>
+<li><input type="checkbox" id="checkbox18"><label for="checkbox18">Proper hierarchy and nesting</label></li>
+<li><input type="checkbox" id="checkbox19"><label for="checkbox19">References consistent</label></li>
+<li><input type="checkbox" id="checkbox20"><label for="checkbox20">Dates in ISO format</label></li>
+</ul>
+<h3 id="validation-results-interpretation">Validation Results Interpretation</h3>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PASS</strong></td>
+<td>File meets all validation criteria</td>
+<td>Ready for submission</td>
+</tr>
+<tr>
+<td><strong>FAIL</strong></td>
+<td>Critical validation error</td>
+<td>Fix before submission</td>
+</tr>
+<tr>
+<td><strong>WARN</strong></td>
+<td>Non-critical issue detected</td>
+<td>Review and confirm</td>
+</tr>
+<tr>
+<td><strong>ERROR</strong></td>
+<td>Validation script error</td>
+<td>Investigate and retry</td>
+</tr>
+<tr>
+<td><strong>REVIEW REQUIRED</strong></td>
+<td>Overall status needs attention</td>
+<td>Manual review needed</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="freesolv-database-integration">FreeSolv Database Integration</h2>
+<h3 id="database-overview">Database Overview</h3>
+<p>FreeSolv is a curated database of small molecule hydration free energies, containing:</p>
+<ul>
+<li><strong>Experimental values</strong>: Literature-sourced hydration data</li>
+<li><strong>Calculated values</strong>: GROMACS/AMBER simulations</li>
+<li><strong>Molecular structures</strong>: MOL2, SDF, GROMACS formats</li>
+<li><strong>Properties</strong>: Enthalpies, functional groups, PubChem IDs</li>
+</ul>
+<h3 id="database-structure">Database Structure</h3>
+<pre class="hljs"><code><div>database.json
+├── Entry 1
+│   ├── SMILES: &quot;CCO&quot;
+│   ├── IUPAC: &quot;ethanol&quot;
+│   ├── CID: 702
+│   ├── ExpValue: -5.41
+│   ├── CalcValue: -5.15
+│   ├── Groups: [&quot;alcohol&quot;, &quot;primary_alcohol&quot;]
+│   └── DOI: &quot;10.1021/ci...&quot;
+├── Entry 2
+│   └── ...
+└── Entry N
+</div></code></pre>
+<h3 id="processing-pipeline">Processing Pipeline</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Load FreeSolv database</span>
+<span class="hljs-keyword">import</span> json
+<span class="hljs-keyword">import</span> pickle
+
+<span class="hljs-keyword">with</span> open(<span class="hljs-string">'FreeSolv-master/database.json'</span>) <span class="hljs-keyword">as</span> f:
+    freesolv_db = json.load(f)
+
+<span class="hljs-comment"># Map SMILES to compounds</span>
+<span class="hljs-keyword">with</span> open(<span class="hljs-string">'FreeSolv-master/smiles_to_cid.json'</span>) <span class="hljs-keyword">as</span> f:
+    smiles_mapping = json.load(f)
+
+<span class="hljs-comment"># Identify compounds in study</span>
+<span class="hljs-keyword">for</span> compound_id <span class="hljs-keyword">in</span> study_compounds:
+    <span class="hljs-keyword">if</span> compound_id <span class="hljs-keyword">in</span> freesolv_db:
+        compound = freesolv_db[compound_id]
+        print(<span class="hljs-string">f"Compound: <span class="hljs-subst">{compound[<span class="hljs-string">'IUPAC'</span>]}</span>"</span>)
+        print(<span class="hljs-string">f"Hydration Free Energy: <span class="hljs-subst">{compound[<span class="hljs-string">'ExpValue'</span>]}</span> kcal/mol"</span>)
+</div></code></pre>
+<h3 id="gromacs-simulation-configuration">GROMACS Simulation Configuration</h3>
+<p><strong>MDP Files</strong> (Molecular Dynamics Parameters):</p>
+<ul>
+<li><code>minimize.X.mdp</code>: Energy minimization</li>
+<li><code>equil_nvt.X.mdp</code>: NVT equilibration</li>
+<li><code>equil_npt.X.mdp</code>: NPT equilibration</li>
+<li><code>equil_npt2.X.mdp</code>: Extended NPT equilibration</li>
+<li><code>prod.X.mdp</code>: Production run</li>
+</ul>
+<p><strong>Supported Conditions</strong>:</p>
+<ul>
+<li>In solution (aqueous)</li>
+<li>In vacuum</li>
+</ul>
+<h3 id="integration-with-clinical-data">Integration with Clinical Data</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Cross-reference compounds</span>
+clinical_compounds = extract_compounds_from_study()
+freesolv_compounds = load_freesolv_database()
+
+<span class="hljs-comment"># Find intersections</span>
+overlap = clinical_compounds.intersection(freesolv_compounds.keys())
+
+<span class="hljs-comment"># Create integrated analysis</span>
+integration_table = pd.DataFrame({
+    <span class="hljs-string">'Compound'</span>: list(overlap),
+    <span class="hljs-string">'Clinical Data'</span>: [clinical_compounds[c] <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> overlap],
+    <span class="hljs-string">'Hydration Energy'</span>: [freesolv_compounds[c][<span class="hljs-string">'ExpValue'</span>] <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> overlap],
+})
+</div></code></pre>
+<hr>
+<h2 id="development-guide">Development Guide</h2>
+<h3 id="adding-new-validators">Adding New Validators</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># In run_validation.py</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">validate_custom_format</span><span class="hljs-params">(file_path)</span>:</span>
+    <span class="hljs-string">"""Validate custom file format."""</span>
+    validation_results = {
+        <span class="hljs-string">'File'</span>: str(file_path.name),
+        <span class="hljs-string">'Custom Check 1'</span>: <span class="hljs-string">'PASS'</span>,
+        <span class="hljs-string">'Custom Check 2'</span>: <span class="hljs-string">'PASS'</span>,
+        <span class="hljs-string">'Issues'</span>: []
+    }
+    
+    <span class="hljs-keyword">try</span>:
+        <span class="hljs-comment"># Add custom validation logic</span>
+        <span class="hljs-keyword">with</span> open(file_path, <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> f:
+            content = f.read()
+        
+        <span class="hljs-comment"># Validation rules</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> content.startswith(<span class="hljs-string">'REQUIRED_HEADER'</span>):
+            validation_results[<span class="hljs-string">'Custom Check 1'</span>] = <span class="hljs-string">'FAIL'</span>
+            validation_results[<span class="hljs-string">'Issues'</span>].append(<span class="hljs-string">'Missing header'</span>)
+        
+        <span class="hljs-keyword">return</span> validation_results
+    
+    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+        validation_results[<span class="hljs-string">'Custom Check 1'</span>] = <span class="hljs-string">'ERROR'</span>
+        validation_results[<span class="hljs-string">'Issues'</span>].append(str(e))
+        <span class="hljs-keyword">return</span> validation_results
+
+<span class="hljs-comment"># Register validator</span>
+VALIDATORS = {
+    <span class="hljs-string">'.xpt'</span>: validate_xpt_file,
+    <span class="hljs-string">'.sdf'</span>: validate_sdf_file,
+    <span class="hljs-string">'.asnt'</span>: validate_asnt_file,
+    <span class="hljs-string">'.custom'</span>: validate_custom_format,  <span class="hljs-comment"># New validator</span>
+}
+</div></code></pre>
+<h3 id="extending-the-analysis-notebook">Extending the Analysis Notebook</h3>
+<p>Create new cell in Jupyter notebook:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Cell: Custom Analysis</span>
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+
+<span class="hljs-comment"># Load processed data</span>
+processed_data = pd.read_csv(<span class="hljs-string">'SD_Study-Data-files.csv'</span>)
+
+<span class="hljs-comment"># Add custom analysis</span>
+custom_results = processed_data.groupby(<span class="hljs-string">'File Type'</span>).agg({
+    <span class="hljs-string">'File Name'</span>: <span class="hljs-string">'count'</span>,
+    <span class="hljs-string">'Size (MB)'</span>: <span class="hljs-string">'sum'</span>
+}).rename(columns={<span class="hljs-string">'File Name'</span>: <span class="hljs-string">'Count'</span>})
+
+print(custom_results)
+
+<span class="hljs-comment"># Save results</span>
+custom_results.to_csv(<span class="hljs-string">'custom_analysis.csv'</span>)
+</div></code></pre>
+<h3 id="directory-monitoring">Directory Monitoring</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Continuous monitoring script</span>
+<span class="hljs-keyword">import</span> watchdog
+<span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ValidationMonitor</span><span class="hljs-params">(watchdog.events.FileSystemEventHandler)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">on_created</span><span class="hljs-params">(self, event)</span>:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> event.is_directory:
+            print(<span class="hljs-string">f"New file: <span class="hljs-subst">{event.src_path}</span>"</span>)
+            validate_single_file(event.src_path)
+
+<span class="hljs-comment"># Monitor directory</span>
+observer = watchdog.observers.Observer()
+observer.schedule(ValidationMonitor(), <span class="hljs-string">'m5/53-clin-stud-reports'</span>, recursive=<span class="hljs-literal">True</span>)
+observer.start()
+</div></code></pre>
+<h3 id="git-workflow">Git Workflow</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Feature development</span>
+git checkout -b feature/new-validator
+git add run_validation.py
+git commit -m <span class="hljs-string">"Add new custom validator"</span>
+git push origin feature/new-validator
+git pull request
+
+<span class="hljs-comment"># Bug fixes</span>
+git checkout -b bugfix/issue-123
+<span class="hljs-comment"># ... make fixes ...</span>
+git commit -m <span class="hljs-string">"Fix issue #123"</span>
+git push origin bugfix/issue-123
+</div></code></pre>
+<hr>
+<h2 id="key-features--capabilities">Key Features &amp; Capabilities</h2>
+<h3 id="%E2%9C%85-comprehensive-file-support">✅ Comprehensive File Support</h3>
+<ul>
+<li>SAS XPORT (.xpt) files</li>
+<li>Structure Data Format (.sdf) files</li>
+<li>XML metadata files</li>
+<li>ASN.1 regulatory files</li>
+<li>JSON compound data</li>
+<li>CSV analysis files</li>
+</ul>
+<h3 id="%E2%9C%85-regulatory-compliance">✅ Regulatory Compliance</h3>
+<ul>
+<li>FDA eCTD standards</li>
+<li>CDISC SDTM/ADaM domain compliance</li>
+<li>Variable naming conventions</li>
+<li>Data integrity requirements</li>
+<li>Electronic submission format validation</li>
+</ul>
+<h3 id="%E2%9C%85-advanced-analysis">✅ Advanced Analysis</h3>
+<ul>
+<li>Molecular structure parsing</li>
+<li>Chemical property calculation</li>
+<li>Domain frequency analysis</li>
+<li>Statistical summaries</li>
+<li>Automated reporting</li>
+</ul>
+<h3 id="%E2%9C%85-quality-assurance">✅ Quality Assurance</h3>
+<ul>
+<li>File integrity checks</li>
+<li>Format validation</li>
+<li>Metadata consistency</li>
+<li>Data type verification</li>
+<li>Missing value detection</li>
+</ul>
+<h3 id="%E2%9C%85-integration-capabilities">✅ Integration Capabilities</h3>
+<ul>
+<li>FreeSolv database connectivity</li>
+<li>GROMACS simulation data</li>
+<li>Multi-format data fusion</li>
+<li>Cross-reference mapping</li>
+</ul>
+<hr>
+<h2 id="troubleshooting-guide">Troubleshooting Guide</h2>
+<h3 id="issue-rdkit-import-error">Issue: RDKit Import Error</h3>
+<pre class="hljs"><code><div>ModuleNotFoundError: No module named 'rdkit'
+</div></code></pre>
+<p><strong>Solution</strong>:</p>
+<pre class="hljs"><code><div>pip install rdkit-pypi
+<span class="hljs-comment"># Or for conda</span>
+conda install -c conda-forge rdkit
+</div></code></pre>
+<h3 id="issue-xpt-file-read-error">Issue: XPT File Read Error</h3>
+<pre class="hljs"><code><div>ValueError: Invalid XPORT format
+</div></code></pre>
+<p><strong>Solution</strong>:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Try alternative read method</span>
+<span class="hljs-keyword">import</span> pyreadstat
+
+<span class="hljs-keyword">try</span>:
+    df, meta = pyreadstat.read_xport(<span class="hljs-string">'file.xpt'</span>)
+<span class="hljs-keyword">except</span>:
+    <span class="hljs-comment"># File might be corrupted, try recovery</span>
+    df = pyreadstat.read_xport(<span class="hljs-string">'file.xpt'</span>, encoding=<span class="hljs-string">'latin1'</span>)[<span class="hljs-number">0</span>]
+</div></code></pre>
+<h3 id="issue-memory-error-with-large-sdf">Issue: Memory Error with Large SDF</h3>
+<pre class="hljs"><code><div>MemoryError: Out of memory reading SDF
+</div></code></pre>
+<p><strong>Solution</strong>:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Process in chunks</span>
+<span class="hljs-keyword">from</span> rdkit <span class="hljs-keyword">import</span> Chem
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">read_sdf_in_chunks</span><span class="hljs-params">(filename, chunk_size=<span class="hljs-number">100</span>)</span>:</span>
+    suppl = Chem.SDMolSupplier(filename)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(suppl), chunk_size):
+        batch = suppl[i:i+chunk_size]
+        <span class="hljs-keyword">yield</span> batch
+</div></code></pre>
+<h3 id="issue-xml-encoding-error">Issue: XML Encoding Error</h3>
+<pre class="hljs"><code><div>UnicodeDecodeError: 'utf-8' codec can't decode
+</div></code></pre>
+<p><strong>Solution</strong>:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Use chardet to detect encoding</span>
+<span class="hljs-keyword">import</span> chardet
+
+<span class="hljs-keyword">with</span> open(<span class="hljs-string">'file.xml'</span>, <span class="hljs-string">'rb'</span>) <span class="hljs-keyword">as</span> f:
+    encoding = chardet.detect(f.read())[<span class="hljs-string">'encoding'</span>]
+
+<span class="hljs-keyword">import</span> xml.etree.ElementTree <span class="hljs-keyword">as</span> ET
+tree = ET.parse(<span class="hljs-string">'file.xml'</span>, encoding=encoding)
+</div></code></pre>
+<hr>
+<h2 id="performance-optimization">Performance Optimization</h2>
+<h3 id="memory-management">Memory Management</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># For large dataset processing</span>
+<span class="hljs-keyword">import</span> gc
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_large_dataset</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">for</span> chunk <span class="hljs-keyword">in</span> read_data_chunks():
+        result = analyze_chunk(chunk)
+        <span class="hljs-keyword">yield</span> result
+        gc.collect()  <span class="hljs-comment"># Force garbage collection</span>
+</div></code></pre>
+<h3 id="parallel-processing">Parallel Processing</h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> concurrent.futures <span class="hljs-keyword">import</span> ProcessPoolExecutor
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">validate_files_parallel</span><span class="hljs-params">(file_list)</span>:</span>
+    <span class="hljs-keyword">with</span> ProcessPoolExecutor(max_workers=<span class="hljs-number">4</span>) <span class="hljs-keyword">as</span> executor:
+        results = list(executor.map(validate_single_file, file_list))
+    <span class="hljs-keyword">return</span> results
+</div></code></pre>
+<h3 id="caching-results">Caching Results</h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> lru_cache
+
+<span class="hljs-meta">@lru_cache(maxsize=128)</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parse_sdf_file</span><span class="hljs-params">(filename)</span>:</span>
+    <span class="hljs-keyword">from</span> rdkit <span class="hljs-keyword">import</span> Chem
+    <span class="hljs-keyword">return</span> Chem.SDMolSupplier(filename)
+</div></code></pre>
+<hr>
+<h2 id="security-considerations">Security Considerations</h2>
+<h3 id="file-upload-validation">File Upload Validation</h3>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">validate_upload</span><span class="hljs-params">(file_path)</span>:</span>
+    <span class="hljs-string">"""Validate uploaded file before processing."""</span>
+    <span class="hljs-comment"># Check file size</span>
+    <span class="hljs-keyword">if</span> os.path.getsize(file_path) &gt; <span class="hljs-number">1e9</span>:  <span class="hljs-comment"># 1 GB limit</span>
+        <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">"File too large"</span>)
+    
+    <span class="hljs-comment"># Check file type</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> file_path.endswith((<span class="hljs-string">'.xpt'</span>, <span class="hljs-string">'.sdf'</span>, <span class="hljs-string">'.xml'</span>, <span class="hljs-string">'.json'</span>)):
+        <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">"Unsupported file type"</span>)
+    
+    <span class="hljs-comment"># Check for zip bombs</span>
+    <span class="hljs-keyword">if</span> is_zip_bomb(file_path):
+        <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">"Suspicious file detected"</span>)
+    
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>
+</div></code></pre>
+<h3 id="data-privacy">Data Privacy</h3>
+<ul>
+<li>Use encryption for sensitive data</li>
+<li>Implement access controls</li>
+<li>Audit data access logs</li>
+<li>Comply with data protection regulations (GDPR, HIPAA)</li>
+</ul>
+<hr>
+<h2 id="references--resources">References &amp; Resources</h2>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li><a href="https://www.cdisc.org/">CDISC Standards</a></li>
+<li><a href="https://www.fda.gov/drugs">FDA eCTD Technical Specifications</a></li>
+<li><a href="https://www.rdkit.org/docs/">RDKit Documentation</a></li>
+<li><a href="https://www.pinnacle21.com/">Pinnacle 21 Validation</a></li>
+</ul>
+<h3 id="tools--software">Tools &amp; Software</h3>
+<ul>
+<li><strong>RDKit</strong>: Cheminformatics software</li>
+<li><strong>Pinnacle 21</strong>: CDISC compliance checker</li>
+<li><strong>pyreadstat</strong>: SAS file reader</li>
+<li><strong>GROMACS</strong>: Molecular dynamics simulator</li>
+</ul>
+<h3 id="publications">Publications</h3>
+<ul>
+<li>Mobley, D. L. (2013). &quot;Experimental and Calculated Small Molecule Hydration Free Energies&quot;</li>
+<li>FreeSolv Database: http://www.escholarship.org/uc/item/6sd403pz</li>
+<li>CDISC SDTM Implementation Guide</li>
+</ul>
+<hr>
+<h2 id="contributing">Contributing</h2>
+<p>Contributions are welcome! Please:</p>
+<ol>
+<li>Fork the repository</li>
+<li>Create a feature branch</li>
+<li>Make your changes</li>
+<li>Add tests</li>
+<li>Submit a pull request</li>
+</ol>
+<hr>
+<h2 id="license">License</h2>
+<p>See LICENSE file for details.</p>
+<hr>
+<h2 id="support--contact">Support &amp; Contact</h2>
+<p><strong>Repository Owner</strong>: SAMeh-ZAGhloul<br>
+<strong>Issues</strong>: <a href="https://github.com/SAMeh-ZAGhloul/SD_Study-Data-files/issues">GitHub Issues</a></p>
+<hr>
+<p><strong>Documentation Generated</strong>: December 2025<br>
+<strong>Version</strong>: 1.0.0</p>
+
+</body>
+</html>
